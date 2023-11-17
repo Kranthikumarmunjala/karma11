@@ -15,7 +15,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from countries.views import all_countries,country
+from players.views import all_players,player
+from matches.views import matches,match
+from teams.views import all_teams,team
+from users.views import all_users,user
+from leaderboard.views import leaderboards,leaderboard
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('all_countries/',all_countries),
+    path('country/',country),
+    path('all_players/',all_players),
+    path('player/',player),
+    path('matches/',matches),
+    path('match/',match),
+    path('all_teams/',all_teams),
+    path('team/',team),
+    path('all_users/',all_users),
+    path('user/',user),
+    path('leaderboards/',leaderboards),
+    path('leaderboard/',leaderboard),
 ]
