@@ -1,10 +1,14 @@
 from django.db import models
-from countries.models import Country
+from players.models import Player
+from users.models import CustomUser
+from matches.models import Match
 # Create your models here.
 class Team(models.Model):
-    country=models.ForeignKey(Country,on_delete=models.SET_NULL,null=True,blank=True)
+    user=models.ForeignKey(CustomUser,on_delete=models.SET_NULL,null=True,blank=True)
+    match=models.ForeignKey(Match,on_delete=models.SET_NULL,null=True,blank=True)
+    player = models.ForeignKey(Player, on_delete=models.SET_NULL, null=True, blank=True)
     name=models.CharField(max_length=255)
-    description=models.TextField(blank=True, null=True)
+    is_captain=models.BooleanField(null=True,blank=True)
     logo=models.ImageField(blank=True,null=True)
 
     def __str__(self):
